@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+logs/
+npm-debug.log*
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache
+.npm/
+
+# ESLint cache
+.eslintcache
+
+# Environment variables
+.env
+.env.local
