@@ -2,6 +2,7 @@
 @use "abstracts/variables" as *;
 @use "abstracts/mixins" as *;
 @use "abstracts/functions" as *;
+@use "abstracts/skeleton" as *;
 
 // Base
 @use "base/reset";
@@ -14,9 +15,11 @@
 @use "layout/header";
 @use "layout/grid";
 @use "layout/footer";
+@use "layout/hero";
 
 // Pages
 @use "pages/home";
 @use "pages/flats";
 @use "pages/houses";
 @use "pages/sites";
+@use "pages/estates";

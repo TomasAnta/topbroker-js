@@ -1,4 +1,3 @@
-// main.js
 import getEstates from "./data.js";
 import "./styles/main.scss";
 
@@ -16,6 +15,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const loadEstates = async () => {
     try {
+        // Show skeleton while loading
+        const categories = document.getElementById("categories");
+        if (categories) {
+            categories.innerHTML = `
+                <div class="category-card skeleton skeleton-card">
+                    <div class="category-card__image"></div>
+                    <div class="category-card__content">
+                        <h2 class="category-card__title"></h2>
+                        <p class="category-card__count"></p>
+                        <div class="category-card__link"></div>
+                    </div>
+                </div>
+                <div class="category-card skeleton skeleton-card">
+                    <div class="category-card__image"></div>
+                    <div class="category-card__content">
+                        <h2 class="category-card__title"></h2>
+                        <p class="category-card__count"></p>
+                        <div class="category-card__link"></div>
+                    </div>
+                </div>
+                <div class="category-card skeleton skeleton-card">
+                    <div class="category-card__image"></div>
+                    <div class="category-card__content">
+                        <h2 class="category-card__title"></h2>
+                        <p class="category-card__count"></p>
+                        <div class="category-card__link"></div>
+                    </div>
+                </div>
+            `;
+        }
+
         const estates = await getEstates();
 
         const flats = estates.filter((e) => e.estate_type === "flat" && Number(e.rent_price) <= 0);
@@ -48,16 +78,18 @@ const renderCategoryCards = ({ flats, houses, sites }) => {
 
     const createCategoryCard = (title, count, image, link) => `
         <div class="category-card">
-            <h2 class="category-card__title">${title}</h2>
-            <img class="category-card__image" src="public/images/${image}" alt="${title}" />
-            <p class="category-card__count">${count}</p>
-            <a href="${link}" class="category-card__link">Peržiūrėti →</a>
+            <img class="category-card__image" src="/public/images/${image}" alt="${title}" loading="lazy" />
+            <div class="category-card__content">
+                <h2 class="category-card__title">${title}</h2>
+                <p class="category-card__count">${count} turto vienetai</p>
+                <a href="${link}" class="category-card__link">Peržiūrėti pasiūlymus</a>
+            </div>
         </div>
     `;
 
-    categories.insertAdjacentHTML("beforeend", createCategoryCard("Butai", `${flats.length} BUTAI`, "flats.jpg", "flats.html"));
-    categories.insertAdjacentHTML("beforeend", createCategoryCard("Namai", `${houses.length} NAMAI`, "house.jpg", "houses.html"));
-    categories.insertAdjacentHTML("beforeend", createCategoryCard("Sklypai", `${sites.length} SKLYPAI`, "site.jpg", "sites.html"));
+    categories.insertAdjacentHTML("beforeend", createCategoryCard("Butai", flats.length, "flats.jpg", "views/flats.html"));
+    categories.insertAdjacentHTML("beforeend", createCategoryCard("Namai", houses.length, "house.jpg", "views/houses.html"));
+    categories.insertAdjacentHTML("beforeend", createCategoryCard("Sklypai", sites.length, "site.jpg", "views/sites.html"));
 };
 
 // Initialize the app only on index.html

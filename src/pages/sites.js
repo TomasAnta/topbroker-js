@@ -4,6 +4,9 @@ const renderSiteCards = (sites) => {
     const list = document.getElementById("sites-list");
     if (!list) return;
 
+    const skeleton = document.querySelector(".sites-skeleton-container");
+    if (skeleton) skeleton.remove();
+
     list.innerHTML = "";
 
     sites.forEach((site) => {
@@ -27,6 +30,32 @@ const renderSiteCards = (sites) => {
     });
 };
 
-loadEstates()
-    .then(({ sites }) => renderSiteCards(sites))
-    .catch(console.error);
+if (document.getElementById("sites-list")) {
+    const list = document.getElementById("sites-list");
+    list.innerHTML = `
+      <div class="sites-skeleton-container">
+        ${Array(6)
+            .fill(
+                `
+          <div class="estate-card skeleton sites-skeleton">
+            <div class="estate-card__image"></div>
+            <div class="estate-card__content">
+              <div class="estate-card__price"></div>
+              <div class="estate-card__title"></div>
+              <div>
+                <span class="estate-card__meta-item"></span>
+                <span class="estate-card__meta-item"></span>
+              </div>
+              <div class="estate-card__link"></div>
+            </div>
+          </div>
+        `
+            )
+            .join("")}
+      </div>
+    `;
+
+    loadEstates()
+        .then(({ sites }) => renderSiteCards(sites))
+        .catch(console.error);
+}

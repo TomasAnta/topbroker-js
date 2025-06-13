@@ -1,0 +1,66 @@
+/* Skeleton Loader - Pure CSS (no variables) */
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background: #f5f5f5;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+        animation: shimmer 1.5s infinite;
+        z-index: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Card Skeleton - Matches your .estate-card layout */
+.estate-card.skeleton {
+    .estate-card__image {
+        background: #e0e0e0 !important;
+        min-height: 200px;
+    }
+
+    .estate-card__price,
+    .estate-card__title,
+    .estate-card__meta-item,
+    .estate-card__link {
+        background: #e0e0e0 !important;
+        color: transparent !important;
+        border-radius: 4px;
+        display: inline-block;
+    }
+
+    .estate-card__price {
+        width: 40%;
+        height: 28px;
+    }
+    .estate-card__title {
+        width: 80%;
+        height: 24px;
+        margin: 8px 0;
+    }
+    .estate-card__meta-item {
+        width: 30%;
+        height: 18px;
+        margin-right: 8px;
+    }
+    .estate-card__link {
+        width: 35%;
+        height: 20px;
+        margin-top: 12px;
+        float: right;
+    }
+}

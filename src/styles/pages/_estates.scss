@@ -1,0 +1,175 @@
+@use "../abstracts/variables" as *;
+
+.estate-detail__card {
+    max-width: 1140px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    font-family: "Segoe UI", sans-serif;
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .estate-detail__main-image {
+        text-align: center;
+        margin-bottom: 1.5rem;
+
+        img {
+            max-width: 100%;
+            border-radius: 0.5rem;
+            object-fit: cover;
+            height: auto;
+        }
+    }
+
+    .estate-detail__gallery {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+
+        img {
+            flex: 0 0 auto;
+            height: 100px;
+            border-radius: 0.5rem;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .estate-detail__main {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-bottom: 1.5rem;
+
+        h4 {
+            font-size: 1.25rem;
+            color: #111;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #444;
+        }
+    }
+
+    .estate-detail__information {
+        margin-bottom: 1.5rem;
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+    }
+
+    .estate-detail__amenities {
+        margin-bottom: 1.5rem;
+
+        h4 {
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+
+        .amenities-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+
+            .amenity {
+                background: #f0f2f5;
+                padding: 0.5rem 0.75rem;
+                border-radius: 0.5rem;
+                font-size: 0.95rem;
+                color: #222;
+            }
+        }
+    }
+
+    .estate-detail__description {
+        h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            color: #222;
+        }
+
+        .description-text {
+            line-height: 1.6;
+            color: #333;
+            font-size: 1rem;
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            white-space: pre-line;
+        }
+    }
+}
+
+/* Estate Detail Skeleton */
+.estate-detail__card.skeleton {
+    h2,
+    h4,
+    p,
+    li,
+    .estate-detail__thumbnail,
+    img {
+        visibility: hidden;
+        position: relative;
+    }
+
+    .estate-detail__main-image::before,
+    .estate-detail__gallery::before,
+    .estate-detail__main::before,
+    .estate-detail__information::before,
+    .estate-detail__amenities::before,
+    .estate-detail__description::before {
+        content: "";
+        display: block;
+        background: #f0f0f0;
+        border-radius: 0.5rem;
+    }
+
+    .estate-detail__main-image::before {
+        height: 400px;
+        margin-bottom: 1.5rem;
+    }
+
+    .estate-detail__gallery::before {
+        height: 100px;
+        margin-bottom: 2rem;
+    }
+
+    .estate-detail__main::before {
+        height: 60px;
+        margin-bottom: 1.5rem;
+    }
+
+    .estate-detail__information::before {
+        height: 160px;
+        margin-bottom: 1.5rem;
+    }
+
+    .estate-detail__amenities::before {
+        height: 120px;
+        margin-bottom: 1.5rem;
+    }
+
+    .estate-detail__description::before {
+        height: 150px;
+    }
+}

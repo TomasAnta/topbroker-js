@@ -1,0 +1,25 @@
+@use "../abstracts//variables" as *;
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/public/images/background.jpg");
+    background-size: cover;
+    background-position: center;
+
+    &__content {
+        height: 30vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    &__subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+}

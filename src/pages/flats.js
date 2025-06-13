@@ -1,9 +1,12 @@
-// flats.js
 import loadEstates from "../main.js";
 
 const renderFlatCards = (flats) => {
     const list = document.getElementById("flats-list");
     if (!list) return;
+
+    // Remove skeleton first
+    const skeleton = document.querySelector(".flats-skeleton-container");
+    if (skeleton) skeleton.remove();
 
     list.innerHTML = "";
 
@@ -32,8 +35,34 @@ const renderFlatCards = (flats) => {
     });
 };
 
-// Only execute if we're on the flats page
 if (document.getElementById("flats-list")) {
+    const list = document.getElementById("flats-list");
+
+    // Create skeleton (6 placeholder cards)
+    list.innerHTML = `
+      <div class="estate-grid">
+        ${Array(6)
+            .fill(
+                `
+          <div class="estate-card skeleton">
+            <div class="estate-card__image"></div>
+            <div class="estate-card__content">
+              <div class="estate-card__price"></div>
+              <div class="estate-card__title"></div>
+              <div class="estate-card__meta">
+                <span class="estate-card__meta-item"></span>
+                <span class="estate-card__meta-item"></span>
+                <span class="estate-card__meta-item"></span>
+              </div>
+              <a class="estate-card__link"></a>
+            </div>
+          </div>
+        `
+            )
+            .join("")}
+      </div>
+    `;
+
     loadEstates()
         .then(({ flats }) => renderFlatCards(flats))
         .catch(console.error);
