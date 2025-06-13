@@ -1,49 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lt">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Modern Real Estate</title>
-        <link rel="stylesheet" href="/src/styles/main.scss" />
+        <title>NT</title>
+        <link rel="stylesheet" href="src/styles/main.scss" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-        <script type="module" src="/src/main.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+        <script type="module" src="src/main.js"></script>
     </head>
+
     <body class="page">
         <header class="header">
-            <div class="header__container">
-                <nav class="nav">
-                    <ul class="nav__list">
-                        <li class="nav__item">
-                            <a href="index.html" class="nav__link nav__link--active"> <i class="fas fa-home"></i> Pagrindinis </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="views/flats.html" class="nav__link"> <i class="fas fa-building"></i> Butai </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="views/houses.html" class="nav__link"> <i class="fas fa-house-user"></i> Namai </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="views/sites.html" class="nav__link"> <i class="fas fa-tree"></i> Sklypai </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link nav__link--active">Pagrindinis</a></li>
+                    <li class="nav__item"><a href="views/flats.html" class="nav__link">Butai</a></li>
+                    <li class="nav__item"><a href="views/houses.html" class="nav__link">Namai</a></li>
+                    <li class="nav__item"><a href="views/sites.html" class="nav__link">Sklypai</a></li>
+                </ul>
+            </nav>
         </header>
 
         <main class="main">
             <section class="hero">
                 <div class="hero__content">
-                    <h2 class="hero__title">Raskite savo svajonių būstą</h2>
+                    <h1 class="hero__title">Raskite savo svajonių būstą</h1>
                     <p class="hero__subtitle">Pati geriausia nekilnojamojo turto pasirinkimo patirtis</p>
                 </div>
             </section>
-
             <section class="categories">
                 <h2 class="categories__title">Nekilnojamojo turto kategorijos</h2>
                 <div id="categories" class="category-grid"></div>

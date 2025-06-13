@@ -2,13 +2,11 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
     build: {
-        outDir: "dist",
+        outDir: "dist", // keep inside project root
         emptyOutDir: true,
     },
-    publicDir: "../public",
+    publicDir: "public", // default; no “../”
     css: {
-        preprocessorOptions: {
-            scss: {},
-        },
+        preprocessorOptions: { scss: {} },
     },
 });
