@@ -1,0 +1,51 @@
+@use "../abstracts/variables" as *;
+
+.category-card {
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $border-radius-lg;
+    padding: $spacing-lg;
+    box-shadow: $shadow-sm;
+    transition: all $transition-medium;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-md;
+    }
+
+    &__image {
+        width: 100%;
+        max-width: 240px;
+        height: auto;
+        margin-bottom: $spacing-md;
+        border-radius: $border-radius-md;
+        object-fit: cover;
+    }
+
+    &__title {
+        font-size: 1.6rem;
+        margin-bottom: $spacing-sm;
+        color: $color-text-dark;
+    }
+
+    &__count {
+        font-size: $font-size-base;
+        color: $color-text-light;
+        margin-bottom: $spacing-md;
+    }
+
+    &__link {
+        font-weight: bold;
+        color: $color-primary;
+        text-decoration: none;
+        transition: color $transition-fast;
+
+        &:hover {
+            color: $color-primary-dark;
+        }
+    }
+}
