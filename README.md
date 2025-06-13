@@ -2,6 +2,7 @@
 
 A lightweight front-end interface for browsing real‑estate listings (flats, houses and sites) pulled from the **TopBroker** REST API.
 
+**You can view the project at: https://topbroker-js.vercel.app/**
 ---
 
 ## Features
