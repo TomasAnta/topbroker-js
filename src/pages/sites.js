@@ -25,7 +25,6 @@ const renderSiteCards = (sites) => {
                 <a class="estate-card__link" href="estate.html?id=${site.id}">Peržiūrėti →</a>
             </div>
         `;
-        console.log(site);
         list.appendChild(siteCard);
     });
 };
