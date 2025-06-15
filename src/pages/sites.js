@@ -20,12 +20,12 @@ const renderSiteCards = (sites) => {
                 <div class="estate-card__title">${site.title}</div>
                 <div class="estate-card__meta">
                     <span class="estate-card__meta-item">📐 ${site.area} m²</span>
-                    <span class="estate-card__meta-item">📍 ${site.city || "Nenurodyta"}</span>
+                    <span class="estate-card__meta-item">📍 ${site.city.name || "Nenurodyta"}</span>
                 </div>
                 <a class="estate-card__link" href="estate.html?id=${site.id}">Peržiūrėti →</a>
             </div>
         `;
-
+        console.log(site);
         list.appendChild(siteCard);
     });
 };
@@ -33,20 +33,21 @@ const renderSiteCards = (sites) => {
 if (document.getElementById("sites-list")) {
     const list = document.getElementById("sites-list");
     list.innerHTML = `
-      <div class="sites-skeleton-container">
+      <div class="estate-grid">
         ${Array(6)
             .fill(
                 `
-          <div class="estate-card skeleton sites-skeleton">
+          <div class="estate-card skeleton">
             <div class="estate-card__image"></div>
             <div class="estate-card__content">
               <div class="estate-card__price"></div>
               <div class="estate-card__title"></div>
-              <div>
+              <div class="estate-card__meta">
+                <span class="estate-card__meta-item"></span>
                 <span class="estate-card__meta-item"></span>
                 <span class="estate-card__meta-item"></span>
               </div>
-              <div class="estate-card__link"></div>
+              <a class="estate-card__link"></a>
             </div>
           </div>
         `
