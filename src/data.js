@@ -31,7 +31,6 @@ const getEstates = async () => {
             page++;
             allEstates = allEstates.concat(data);
         }
-        console.log(allEstates);
         return allEstates;
     } catch (err) {
         console.error("There was an error fetching Estates:", err);

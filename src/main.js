@@ -3,19 +3,20 @@ import "./styles/main.scss";
 
 document.addEventListener("DOMContentLoaded", () => {
     const links = document.querySelectorAll(".nav__link");
-    const currentPath = window.location.pathname.split("/").pop();
-    links.forEach((link) => {
-        const href = link.getAttribute("href");
+    const currentPath = window.location.pathname.split("/").pop() || "index.html";
 
-        if (href === currentPath || (currentPath === "" && href === "index.html")) {
+    links.forEach((link) => {
+        const href = link.getAttribute("href").split("/").pop();
+        if (href === currentPath) {
             link.classList.add("nav__link--active");
+        } else {
+            link.classList.remove("nav__link--active");
         }
     });
 });
 
 const loadEstates = async () => {
     try {
-        // Show skeleton while loading
         const categories = document.getElementById("categories");
         if (categories) {
             categories.innerHTML = `
@@ -78,7 +79,7 @@ const renderCategoryCards = ({ flats, houses, sites }) => {
 
     const createCategoryCard = (title, count, image, link) => `
         <div class="category-card">
-            <img class="category-card__image" src="/public/images/${image}" alt="${title}" loading="lazy" />
+            <img class="category-card__image" src="/images/${image}" alt="${title}" loading="lazy" />
             <div class="category-card__content">
                 <h2 class="category-card__title">${title}</h2>
                 <p class="category-card__count">${count} turto vienetai</p>
@@ -92,7 +93,6 @@ const renderCategoryCards = ({ flats, houses, sites }) => {
     categories.insertAdjacentHTML("beforeend", createCategoryCard("Sklypai", sites.length, "site.jpg", "views/sites.html"));
 };
 
-// Initialize the app only on index.html
 if (document.getElementById("categories")) {
     loadEstates().then(renderCategoryCards).catch(console.error);
 }
